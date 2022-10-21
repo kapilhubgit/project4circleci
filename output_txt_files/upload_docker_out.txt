@@ -1,4 +1,4 @@
-(.devops) voclabs:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./upload_docker.sh 
+(.devops) voclabs:~/environment/project4circleci (main) $ ./upload_docker.sh
 Docker ID and Image: kapildockerlogin/udacity-project4-microservices
 Password: 
 WARNING! Your password will be stored unencrypted in /home/ec2-user/.docker/config.json.
@@ -8,17 +8,17 @@ https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 Login Succeeded
 Using default tag: latest
 The push refers to repository [docker.io/kapildockerlogin/udacity-project4-microservices]
-16603f40ff66: Pushed 
-309dc166c837: Pushed 
-fa15b5bef051: Pushed 
-799a7872c8c7: Mounted from library/python 
-715450468940: Mounted from library/python 
-c9d608035aef: Mounted from library/python 
-bb9c02680a15: Mounted from library/python 
-a637c551a0da: Mounted from library/python 
-2c8d31157b81: Mounted from library/python 
-7b76d801397d: Mounted from library/python 
-f32868cde90b: Mounted from library/python 
-0db06dff9d9a: Mounted from library/python 
-latest: digest: sha256:d540f999a09a5daa41b0d3c56a5e706ea608f1366feedff30afc4055b16eb9ce size: 2847
-(.devops) voclabs:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ 
+096c530b2844: Pushed 
+09c99945996d: Pushed 
+5d55535848ca: Pushed 
+799a7872c8c7: Layer already exists 
+715450468940: Layer already exists 
+c9d608035aef: Layer already exists 
+bb9c02680a15: Layer already exists 
+a637c551a0da: Layer already exists 
+2c8d31157b81: Layer already exists 
+7b76d801397d: Layer already exists 
+f32868cde90b: Layer already exists 
+0db06dff9d9a: Layer already exists 
+latest: digest: sha256:7e10294786ca8d4c87eb4a1eaa13970d5e80a20f11a779cc94c95941ed484daa size: 2848
+(.devops) voclabs:~/environment/project4circleci (main) $ 
