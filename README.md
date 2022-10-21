@@ -1,6 +1,7 @@
 <include a CircleCI status badge, here>
 ![image](https://user-images.githubusercontent.com/97783942/197194106-27c2857d-a00e-43f5-a8ac-411da1df895a.png)
 
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/kapilhubgit/project4circleci/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/kapilhubgit/project4circleci/tree/main)
 
 ## Project Overview
 
