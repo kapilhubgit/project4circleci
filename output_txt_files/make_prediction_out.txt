@@ -1,0 +1,9 @@
+voclabs:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ ls
+app.py  Dockerfile  Makefile  make_prediction.sh  model_data  output_txt_files  README.md  requirements.txt  run_docker.sh  run_kubernetes.sh  upload_docker.sh
+voclabs:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./make_prediction.sh
+Port: 8000
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}

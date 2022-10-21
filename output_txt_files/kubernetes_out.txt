@@ -1,0 +1,96 @@
+<paste log output from Kubernetes-mediated prediction, here>
+
+(.devops) voclabs:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ minikube start
+* minikube v1.27.1 on Amazon 2
+* Automatically selected the docker driver. Other choices: ssh, none
+
+X The requested memory allocation of 1954MiB does not leave room for system overhead (total system memory: 1954MiB). You may face stability issues.
+* Suggestion: Start minikube with less memory allocated: 'minikube start --memory=1954mb'
+
+* Using Docker driver with root privileges
+* Starting control plane node minikube in cluster minikube
+* Pulling base image ...
+* Downloading Kubernetes v1.25.2 preload ...
+    > preloaded-images-k8s-v18-v1...:  385.41 MiB / 385.41 MiB  100.00% 264.57 
+    > gcr.io/k8s-minikube/kicbase:  387.11 MiB / 387.11 MiB  100.00% 59.18 MiB 
+    > gcr.io/k8s-minikube/kicbase:  0 B [_______________________] ?% ? p/s 5.3s
+* Creating docker container (CPUs=2, Memory=1954MB) ...
+
+X Docker is nearly out of disk space, which may cause deployments to fail! (86% of capacity). You can pass '--force' to skip this check.
+* Suggestion: 
+
+    Try one or more of the following to free up space on the device:
+    
+    1. Run "docker system prune" to remove unused Docker data (optionally with "-a")
+    2. Increase the storage allocated to Docker for Desktop by clicking on:
+    Docker icon > Preferences > Resources > Disk Image Size
+    3. Run "minikube ssh -- docker system prune" if using the Docker container runtime
+* Related issue: https://github.com/kubernetes/minikube/issues/9024
+
+* Preparing Kubernetes v1.25.2 on Docker 20.10.18 ...
+  - Generating certificates and keys ...
+  - Booting up control plane ...
+  - Configuring RBAC rules ...
+* Verifying Kubernetes components...
+  - Using image gcr.io/k8s-minikube/storage-provisioner:v5
+* Enabled addons: storage-provisioner, default-storageclass
+* Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+(.devops) voclabs:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ kubectl config view
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: /home/ec2-user/.minikube/ca.crt
+    extensions:
+    - extension:
+        last-update: Thu, 20 Oct 2022 20:48:13 UTC
+        provider: minikube.sigs.k8s.io
+        version: v1.27.1
+      name: cluster_info
+    server: https://192.168.49.2:8443
+  name: minikube
+contexts:
+- context:
+    cluster: minikube
+    extensions:
+    - extension:
+        last-update: Thu, 20 Oct 2022 20:48:13 UTC
+        provider: minikube.sigs.k8s.io
+        version: v1.27.1
+      name: context_info
+    namespace: default
+    user: minikube
+  name: minikube
+current-context: minikube
+kind: Config
+preferences: {}
+users:
+- name: minikube
+  user:
+    client-certificate: /home/ec2-user/.minikube/profiles/minikube/client.crt
+    client-key: /home/ec2-user/.minikube/profiles/minikube/client.key
+
+(.devops) voclabs:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./run_kubernetes.sh 
+pod/udacity-project4-microservices created
+NAME                             READY   STATUS              RESTARTS   AGE
+udacity-project4-microservices   0/1     ContainerCreating   0          1s
+error: unable to forward port because pod is not running. Current status=Pending
+(.devops) voclabs:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ kubectl get pods
+NAME                             READY   STATUS    RESTARTS   AGE
+udacity-project4-microservices   1/1     Running   0          87s
+(.devops) voclabs:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ 
+(.devops) voclabs:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ 
+(.devops) voclabs:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./run_kubernetes.sh 
+Error from server (AlreadyExists): pods "udacity-project4-microservices" already exists
+NAME                             READY   STATUS    RESTARTS   AGE
+udacity-project4-microservices   1/1     Running   0          110s
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+
+voclabs:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./make_prediction.sh
+Port: 8000
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+
